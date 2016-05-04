@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <h:head>
+        <title>Gnome Shop!</title>
+        <link rel="stylesheet" type="text/css" href="./Styles/style.scss" />
+    </h:head>
+    <h:body>
+        <ui:include src="header.xhtml" />
+        <b:container>
+            <h:form>
+                <div class="wrapper">
+                <h3>Login</h3>
+              
+                    <h:inputText id="username" a:Placeholder="username" value="#{currAcc.enterUser}"/>
+                
+                    <h:inputText a:type="password" a:Placeholder="password" id="password" value="#{currAcc.enterPassword}"/>
+              
+                    <h:commandButton value="Log in" action="#{currAcc.login()}"/>
+               
+                    <h:outputLabel rendered="#{!currAcc.loggedIn}" value="Wrong username or password"/>
+
+              
+
+                <h3>New User</h3>
+              
+                    <h:outputLabel for="newId" value="Username: "/>
+                    <h:inputText id="newId" value="#{currAcc.newId}"/>
+              
+                    <h:outputLabel for="newPassword" value="Password: "/>
+                    <h:inputText a:type="password" id="newPassword" value="#{currAcc.newPassword}"/>
+              
+                    <h:commandButton value="Register" action="#{currAcc.createAccount()}"/>
+       
+                </div>
+            </h:form>
+            <h:outputLabel rendered="#{!currAcc.uniqueId}" value="Username already exist"/>
+        </b:container>
+    </h:body>
+</html>
+
