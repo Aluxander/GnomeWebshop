@@ -1,0 +1,32 @@
+.header{
+    height: 60px;
+    background-color: #2E2E2E;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: row;
+}
+.wrapper *{
+    margin-top: 10px;
+}
+
+.logo{
+    margin-left: 10px;
+}
+.navWrapper{
+    display:flex;
+    flex-direction: row;
+    margin-left: 60px;
+    justify-content: center;
+}
+.navWrapper *{
+    margin-left: 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+.navWrapper *:hover{
+    text-decoration: none;
+    color: white;
+}
