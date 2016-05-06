@@ -3,13 +3,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:b="http://bootsfaces.net/ui">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <ui:composition template="./templates/main.xhtml">
         <ui:define name="content">   
             <h:outputStylesheet name="css/index.scss" />
-            <div class="cover"> hej hej </div>
+            <div class="cover"> 
+                <img class="coverImage" src="./resources/images/cover.jpg"></img>
+                <div class="info">
+                    <h1>Welcome to GnomeShop!</h1>
+                    <p>If you are interested in little gnomes decorations you have</p>
+                    <p>come to the right place! Please make an account to be able</p>
+                    <p>to visit the shop! If you already have an account</p>
+                    <p>feel free to log in and buy some gnomes!</p>
+                </div>
+            </div>
         </ui:define>
     </ui:composition>      
 </html>

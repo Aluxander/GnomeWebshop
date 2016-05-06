@@ -100,9 +100,22 @@ public class AccountManager implements Serializable {
     }
 
     public String logout() {
-
         controller.logout();
         return "index?faces-redirect=true";
+
+    }
+     public String toLogin() {
+        try {
+            startConversation();
+            transactionFailure = null;
+            return "login?faces-redirect=true";
+
+        } catch (Exception e) {
+            System.out.println("wtf");
+            handleException(e);
+        }
+
+        return jsf22Bugfix();
 
     }
 

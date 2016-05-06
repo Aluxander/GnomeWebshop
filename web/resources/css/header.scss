@@ -2,17 +2,14 @@
     height: 60px;
     background-color: #2E2E2E;
 }
-
 .wrapper{
     display: flex;
     flex-direction: row;
+    width: 70%;
+    margin: 0 auto;
 }
 .wrapper *{
     margin-top: 10px;
-}
-
-.logo{
-    margin-left: 10px;
 }
 .navWrapper{
     display:flex;
