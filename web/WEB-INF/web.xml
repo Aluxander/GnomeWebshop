@@ -22,7 +22,7 @@
         <welcome-file>faces/index.xhtml</welcome-file>
     </welcome-file-list>
     <mime-mapping>
-  <extension>scss</extension>
-  <mime-type>stylesheet/scss</mime-type>
+    <extension>scss</extension>
+    <mime-type>stylesheet/scss</mime-type>
 </mime-mapping>
 </web-app>

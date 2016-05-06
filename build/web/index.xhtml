@@ -7,17 +7,40 @@
 
     <ui:composition template="./templates/main.xhtml">
         <ui:define name="content">   
-            <h:outputStylesheet name="css/index.scss" />
+            <h:outputStylesheet name="css/index.css" />
             <div class="cover"> 
                 <img class="coverImage" src="./resources/images/cover.jpg"></img>
                 <div class="info">
-                    <h1>Welcome to GnomeShop!</h1>
-                    <p>If you are interested in little gnomes decorations you have</p>
-                    <p>come to the right place! Please make an account to be able</p>
-                    <p>to visit the shop! If you already have an account</p>
-                    <p>feel free to log in and buy some gnomes!</p>
+                    <div class="welcomeText">
+                        <h1>Welcome to GnomeShop!</h1>
+                        <p>If you are interested in little gnomes decorations you have
+                            come to the right place! Please make an account to be able
+                            to visit the shop! If you already have an account
+                            feel free to log in and buy some gnomes!</p>
+                    </div>
+                    <div class="loginWrapper">
+                        <h:form>
+                            <div class="inputWrapper">
+                                <h:inputText class="username" a:Placeholder="username" value="#{currAcc.enterUser}"/>
+                                <h:inputText class="password" a:type="password" a:Placeholder="password" id="password" value="#{currAcc.enterPassword}"/>
+                                <h:commandButton class="loginButton" value="Log in" action="#{currAcc.login()}"/>
+                            </div>
+                            <h:outputLabel class="errorMessage" rendered="#{!currAcc.loggedIn}" value="Wrong username or password. Try again!" />
+                            
+                            <div class="registerText">
+                            <p>Don't have an account?&nbsp;</p> 
+                            <h:link value=" Register here" outcome="login"></h:link>
+                            </div>
+                        </h:form>
+                    </div>
                 </div>
             </div>
+            <div class="title">
+                <h1>Popular right now!</h1>
+            </div>
+            <ui:insert name="header">
+                <ui:include src="./templates/popular.xhtml" />
+            </ui:insert>
         </ui:define>
     </ui:composition>      
 </html>

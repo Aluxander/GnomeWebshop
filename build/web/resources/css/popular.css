@@ -1,0 +1,23 @@
+p{
+    margin-top: 5px;
+}
+.popular{
+    display:flex; 
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 300px;
+    width: 60%;
+    margin: 0 auto;
+    background-color:white;
+}
+.popular *{
+    display:flex;
+    flex-direction: column;
+    width: 200px;
+}
+.popImage{
+    border-bottom: 2px solid #FE9A2E;
+    height: 200px;
+    width: 200px;
+}
