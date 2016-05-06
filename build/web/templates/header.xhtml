@@ -10,9 +10,15 @@
                 <img class="logo" src="../resources/images/logo.png"></img>
                 <div class="navWrapper">
                     <h:link value="HOME" outcome="index"></h:link>
-                    <h:link value="SHOP" outcome="login"></h:link>
+                    <h:link value="SHOP" outcome="gnome"></h:link>
                     <h:link value="ABOUT" outcome="login"></h:link>
                     <h:link value="CONTACT" outcome="login"></h:link>
+                </div>
+                <div class="loggedIn">
+                    <h:form rendered="${username != null}">
+                    <h:outputLabel value="Welcome ${username}! " />
+                    <h:commandButton value="Log out" action="#{currAcc.logout()}" />
+                     </h:form>
                 </div>
             </div>    
         </div> 

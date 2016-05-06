@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <ui:composition template="./templates/main.xhtml">
+        <ui:define name="content">   
+            <div class="registerWrapper">
+                <h:form>
+                <h3>New User</h3>
+
+                <h:outputLabel for="newId" value="Username: "/>
+                <h:inputText id="newId" value="#{currAcc.newId}"/>
+
+                <h:outputLabel for="newPassword" value="Password: "/>
+                <h:inputText a:type="newPassword" id="newPassword" value="#{currAcc.newPassword}"/>
+
+                <h:commandButton value="Register" action="#{currAcc.createAccount()}"/>
+
+
+                <h:outputLabel rendered="#{!currAcc.uniqueId}" value="Username already exist"/>
+                </h:form>
+            </div>
+        </ui:define>
+    </ui:composition>    
+</html>

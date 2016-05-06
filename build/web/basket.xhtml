@@ -4,9 +4,10 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
- 
+    
+    <ui:composition template="./templates/main.xhtml">
+        <ui:define name="content">  
     <body action="#{basket.findBasket()}">
-        <ui:include src="header.xhtml" />
         <h:form>
         <h3>Buy them gnooomeeezzz</h3>
         
@@ -23,5 +24,7 @@
         
 
     </body>
+            </ui:define>
+    </ui:composition>
 </html>
 

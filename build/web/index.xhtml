@@ -14,12 +14,13 @@
                     <div class="welcomeText">
                         <h1>Welcome to GnomeShop!</h1>
                         <p>If you are interested in little gnomes decorations you have
-                            come to the right place! Please make an account to be able
-                            to visit the shop! If you already have an account
+                            come to the right place! This is a private shop, you have to log in
+                            to navigate on this site. Please make an account. 
+                            If you already have an account
                             feel free to log in and buy some gnomes!</p>
                     </div>
                     <div class="loginWrapper">
-                        <h:form>
+                        <h:form rendered="${username == null}">
                             <div class="inputWrapper">
                                 <h:inputText class="username" a:Placeholder="username" value="#{currAcc.enterUser}"/>
                                 <h:inputText class="password" a:type="password" a:Placeholder="password" id="password" value="#{currAcc.enterPassword}"/>
@@ -29,7 +30,7 @@
                             
                             <div class="registerText">
                             <p>Don't have an account?&nbsp;</p> 
-                            <h:link value=" Register here" outcome="login"></h:link>
+                            <h:link value=" Register here" outcome="register"></h:link>
                             </div>
                         </h:form>
                     </div>

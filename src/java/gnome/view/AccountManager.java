@@ -2,6 +2,7 @@ package gnome.view;
 
 import gnome.controller.AccountFacade;
 import gnome.model.AccountDTO;
+import gnome.utils.SessionUtil;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +23,7 @@ public class AccountManager implements Serializable {
     private String displayUser;
     private boolean uniqueId = true;
     private boolean loggedIn = true;
+    private boolean displayLogin = false;
     private String newId;
     private String newPassword;
     private String enterUser;
@@ -85,7 +87,12 @@ public class AccountManager implements Serializable {
             uniqueId = true;
 
             if (loggedIn) {
-                return "gnome?faces-redirect=true";
+                displayLogin = true;
+                if("admin".equals(SessionUtil.getUserName())){
+                    return "admin?faces-redirect=true";
+                }else{
+                   return "gnome?faces-redirect=true"; 
+                }
             }
 
             setEnterUser("");
@@ -101,25 +108,11 @@ public class AccountManager implements Serializable {
 
     public String logout() {
         controller.logout();
+        displayLogin = false;
         return "index?faces-redirect=true";
 
     }
-     public String toLogin() {
-        try {
-            startConversation();
-            transactionFailure = null;
-            return "login?faces-redirect=true";
-
-        } catch (Exception e) {
-            System.out.println("wtf");
-            handleException(e);
-        }
-
-        return jsf22Bugfix();
-
-    }
-
-    public String createAccount() {
+ public String createAccount() {
         try {
             startConversation();
             transactionFailure = null;
@@ -227,6 +220,14 @@ public class AccountManager implements Serializable {
 
     public void setAccountList(List<AccountDTO> accountList) {
         this.accountList = accountList;
+    }
+
+    public boolean isDisplayLogin() {
+        return displayLogin;
+    }
+
+    public void setDisplayLogin(boolean displayLogin) {
+        this.displayLogin = displayLogin;
     }
 
 }
