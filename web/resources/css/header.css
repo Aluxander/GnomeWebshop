@@ -2,19 +2,21 @@
     height: 60px;
     background-color: #2E2E2E;
 }
+.logo{
+    margin-top:10px;
+}
 .wrapper{
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: baseline;
     width: 60%;
     margin: 0 auto;
+    justify-content: space-between;
 }
 .wrapper *{
     margin-top: 10px;
 }
 .navWrapper{
-    display:flex;
-    flex-direction: row;
     margin-left: 60px;
 }
 .navWrapper *{
@@ -31,6 +33,15 @@
 .loggedIn{
     display:flex;
     flex-direction: row;
-    margin-left: 50px;
+    flex-wrap: nowrap;
     color: #FE9A2E;
+}
+@media screen and (max-width: 768px){
+    .logo{
+        display:none;
+    }
+    .wrapper{
+        flex-direction: column;
+    }
+
 }

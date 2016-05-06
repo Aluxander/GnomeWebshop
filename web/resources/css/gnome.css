@@ -1,6 +1,27 @@
-.gnomeWrapper{
-    width: 60%;
-    margin: 0 auto;
+.content{
     margin-top: 10px;
     background-color: white;
+}
+.order-table{
+    width: 90%;
+    margin: 0 auto;
+}
+.order-table *{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 5px;
+}
+.gnomeCard{
+    display:flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height:280px;
+    width: 200px;
+    border-bottom: 1px solid #FE9A2E;
+
+}
+.gnomeImage{
+    height: 200px;
+    width: 200px;
 }

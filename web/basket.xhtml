@@ -4,27 +4,25 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    
+
     <ui:composition template="./templates/main.xhtml">
         <ui:define name="content">  
-    <body action="#{basket.findBasket()}">
-        <h:form>
-        <h3>Buy them gnooomeeezzz</h3>
-        
-         <h:form rendered="${username != 'admin'}">
-            <h3>Your basket:</h3>
+            <body action="#{basket.findBasket()}">
+                <h:form>
+                    <h3>Buy them gnooomeeezzz</h3>
+                     <h:form rendered="${username != 'admin'}">
+                        <h3>Your basket:</h3>
+                        <h:dataTable value="#{basket.basketList}" var="item">
+                            <h:column>#{item.id}, #{item.quantity} pieces </h:column>
+                        </h:dataTable>
+                        <h:commandButton rendered="#{basket.basketList.size()>0}" value="Buy" action="#{basket.buyBasket()}" />
+                    </h:form>
 
-            <h:dataTable value="#{basket.basketList}" var="item">
-                <h:column>#{item.id}, #{item.quantity} pieces </h:column>
-            </h:dataTable>
-            <h:commandButton rendered="#{basket.basketList.size()>0}" value="Buy" action="#{basket.buyBasket()}" />
-        </h:form>
-        
-        </h:form>
-        
+                </h:form>
 
-    </body>
-            </ui:define>
+
+            </body>
+        </ui:define>
     </ui:composition>
 </html>
 

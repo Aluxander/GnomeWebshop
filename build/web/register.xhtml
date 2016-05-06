@@ -11,20 +11,15 @@ and open the template in the editor.
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
     <ui:composition template="./templates/main.xhtml">
         <ui:define name="content">   
-            <div class="registerWrapper">
+            <div class="content">
                 <h:form>
-                <h3>New User</h3>
-
-                <h:outputLabel for="newId" value="Username: "/>
-                <h:inputText id="newId" value="#{currAcc.newId}"/>
-
-                <h:outputLabel for="newPassword" value="Password: "/>
-                <h:inputText a:type="newPassword" id="newPassword" value="#{currAcc.newPassword}"/>
-
-                <h:commandButton value="Register" action="#{currAcc.createAccount()}"/>
-
-
-                <h:outputLabel rendered="#{!currAcc.uniqueId}" value="Username already exist"/>
+                    <h3>New User</h3>
+                    <h:outputLabel for="newId" value="Username: "/>
+                    <h:inputText id="newId" value="#{currAcc.newId}"/>
+                    <h:outputLabel for="newPassword" value="Password: "/>
+                    <h:inputText a:type="newPassword" id="newPassword" value="#{currAcc.newPassword}"/>
+                    <h:commandButton value="Register" action="#{currAcc.createAccount()}"/>
+                    <h:outputLabel rendered="#{!currAcc.uniqueId}" value="Username already exist"/>
                 </h:form>
             </div>
         </ui:define>
