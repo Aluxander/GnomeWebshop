@@ -11,7 +11,7 @@ and open the template in the editor.
     <ui:composition template="./templates/main.xhtml">
         <ui:define name="content">   
             <h:outputStylesheet name="css/gnome.css" />
-            <body action="#{gnome.findGnomes()},#{currAcc.findAccounts()},#{basket.findBasket()}">
+            <body action="#{gnome.findGnomes()},#{account.findAccounts()},#{basket.findBasket()}">
                 <div class="content">
                     <h:form>
                         <h3>Add gnomes to your basket:</h3>

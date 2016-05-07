@@ -22,11 +22,11 @@
                     <div class="loginWrapper">
                         <h:form rendered="${username == null}">
                             <div class="inputWrapper">
-                                <h:inputText class="username" a:Placeholder="username" value="#{currAcc.enterUser}"/>
-                                <h:inputText class="password" a:type="password" a:Placeholder="password" id="password" value="#{currAcc.enterPassword}"/>
-                                <h:commandButton class="loginButton" value="Log in" action="#{currAcc.login()}"/>
+                                <h:inputText class="username" a:Placeholder="username" value="#{account.enterUser}"/>
+                                <h:inputText class="password" a:type="password" a:Placeholder="password" id="password" value="#{account.enterPassword}"/>
+                                <h:commandButton class="loginButton" value="Log in" action="#{account.login()}"/>
                             </div>
-                            <h:outputLabel class="errorMessage" rendered="#{!currAcc.loggedIn}" value="Wrong username or password. Try again!" />
+                            <h:outputLabel class="errorMessage" rendered="#{!account.loggedIn}" value="Wrong username or password. Try again!" />
 
                             <div class="registerText">
                                 <p>Don't have an account?&nbsp;</p> 

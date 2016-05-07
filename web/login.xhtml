@@ -14,25 +14,25 @@
                     <h:form>
                         <h3>Login</h3>
                         <div class="loginWrapper">
-                            <h:inputText class="username" a:Placeholder="username" value="#{currAcc.enterUser}"/>
-                            <h:inputText a:type="password" a:Placeholder="password" id="password" value="#{currAcc.enterPassword}"/>
-                            <h:commandButton class="loginBtn" value="Log in" action="#{currAcc.login()}"/>
-                            <h:outputLabel rendered="#{!currAcc.loggedIn}" value="Wrong username or password"/>
+                            <h:inputText class="username" a:Placeholder="username" value="#{account.enterUser}"/>
+                            <h:inputText a:type="password" a:Placeholder="password" id="password" value="#{account.enterPassword}"/>
+                            <h:commandButton class="loginBtn" value="Log in" action="#{account.login()}"/>
+                            <h:outputLabel rendered="#{!account.loggedIn}" value="Wrong username or password"/>
                         </div>
 
 
                         <h3>New User</h3>
 
                         <h:outputLabel for="newId" value="Username: "/>
-                        <h:inputText id="newId" value="#{currAcc.newId}"/>
+                        <h:inputText id="newId" value="#{account.newId}"/>
 
                         <h:outputLabel for="newPassword" value="Password: "/>
-                        <h:inputText a:type="password" id="newPassword" value="#{currAcc.newPassword}"/>
+                        <h:inputText a:type="password" id="newPassword" value="#{account.newPassword}"/>
 
-                        <h:commandButton value="Register" action="#{currAcc.createAccount()}"/>
+                        <h:commandButton value="Register" action="#{account.createAccount()}"/>
 
                     </h:form>
-                    <h:outputLabel rendered="#{!currAcc.uniqueId}" value="Username already exist"/>
+                    <h:outputLabel rendered="#{!account.uniqueId}" value="Username already exist"/>
                 </div>
             </div>
         </ui:define>

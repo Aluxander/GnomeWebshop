@@ -11,7 +11,7 @@ and open the template in the editor.
     <ui:composition template="./templates/main.xhtml">
         <ui:define name="content">   
             <h:outputStylesheet name="css/gnome.css" />
-            <body action="#{gnome.findGnomes()},#{currAcc.findAccounts()},#{basket.findBasket()}">
+            <body action="#{gnome.findGnomes()},#{account.findAccounts()},#{basket.findBasket()}">
                 <div class="content">
                 <h:form>
                     <h3>Available Gnomes:</h3>
@@ -46,9 +46,10 @@ and open the template in the editor.
                 <h:form>
                     <h3>Accounts:</h3>
 
-                    <h:dataTable value="#{currAcc.accountList}" var="account">
-                        <h:column>#{account.id} <h:commandButton rendered="#{account.banned == 0}" value="Ban" action="#{currAcc.banAccount(account.id)}"/>
-                            <h:commandButton rendered="#{account.banned == 1}" value="Unban" action="#{currAcc.unbanAccount(account.id)}"/>
+                    <h:dataTable value="#{account.accountList}" var="accounts">
+                        <h:column>#{accounts.id} 
+                            <h:commandButton rendered="#{accounts.banned == 0}" value="Ban" action="#{account.banAccount(accounts.id)}"/>
+                            <h:commandButton rendered="#{accounts.banned == 1}" value="Unban" action="#{account.unbanAccount(accounts.id)}"/>
                         </h:column>
                     </h:dataTable>
                 </h:form>

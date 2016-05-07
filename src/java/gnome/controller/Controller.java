@@ -8,6 +8,7 @@ package gnome.controller;
 import gnome.dao.GnomeshopDAO;
 import gnome.model.AccountDTO;
 import gnome.model.AccountHandler;
+import gnome.model.BasketHandler;
 import gnome.model.GnomeDTO;
 import gnome.model.GnomeHandler;
 import gnome.utils.SessionUtil;
@@ -29,6 +30,8 @@ public class Controller {
     AccountHandler ah;
     @EJB
     GnomeHandler gh;
+    @EJB
+    BasketHandler bh;
  
     //Calls regarding Accounts #####################################################################
     public boolean login(String id, String password){
@@ -69,5 +72,18 @@ public class Controller {
     
     public List<GnomeDTO> findGnomes(){
         return dao.findGnomes();
+    }
+    
+    //Calls regarding Basket #####################################################################
+    public boolean addBasket(String gnomeID){
+        return bh.addBasket(gnomeID);
+    }
+
+    public List<GnomeDTO> findBasket(){
+        return bh.findBasket();
+    }
+    
+    public void buyBasket(List<GnomeDTO> basketList){
+        bh.buyBasket(basketList);
     }
 }

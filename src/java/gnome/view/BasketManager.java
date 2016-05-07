@@ -6,6 +6,7 @@
 package gnome.view;
 
 import gnome.controller.BasketFacade;
+import gnome.controller.Controller;
 import gnome.model.GnomeDTO;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class BasketManager implements Serializable {
 
     private static final long serialVersionUID = 1337840851L;
     @EJB
-    private BasketFacade controller;
+    private Controller controller;
     @Inject
     private Conversation conversation;
     private List<GnomeDTO> basketList = new ArrayList();
@@ -120,8 +121,9 @@ public class BasketManager implements Serializable {
             handleException(e);
         }
         return jsf22Bugfix();
-     }
-
+    }
+    
+    //Getters and setters #########################################################################
     public List<GnomeDTO> getBasketList() {
         return basketList;
     }

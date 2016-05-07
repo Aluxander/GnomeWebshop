@@ -51,7 +51,7 @@ public class SessionUtil {
         HttpSession session = getSession();
         tempBasket = (List<GnomeDTO>) session.getAttribute("basket");
         
-        if(BasketHandler.addBasket(id, quantity, price, tempBasket)){
+        if(BasketHandler.checkBasket(id, quantity, price, tempBasket)){
             session.setAttribute("basket", tempBasket);
             return true;
         }else{

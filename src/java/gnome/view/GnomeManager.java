@@ -27,9 +27,7 @@ import javax.inject.Named;
 public class GnomeManager implements Serializable {
     private static final long serialVersionUID = 1337880851L;
     @EJB
-    private GnomeFacade controller;
-    @EJB
-    private Controller controllerr;
+    private Controller controller;
     @Inject
     private Conversation conversation;
     private Exception transactionFailure;
@@ -77,7 +75,7 @@ public class GnomeManager implements Serializable {
         try{
             startConversation();
             transactionFailure = null;
-            controllerr.addExistingGnome(gnomeID, 1);
+            controller.addExistingGnome(gnomeID, 1);
             
         }catch (Exception e) {
             handleException(e);
@@ -90,7 +88,7 @@ public class GnomeManager implements Serializable {
         try{
             startConversation();
             transactionFailure = null;
-            controllerr.removeGnome(gnomeID, 1);
+            controller.removeGnome(gnomeID, 1);
             
         }catch (Exception e) {
             handleException(e);
@@ -106,7 +104,7 @@ public class GnomeManager implements Serializable {
         try{
             startConversation();
             transactionFailure = null;
-            uniqueGnome = controllerr.createGnome(gnomeID, quantity, price);
+            uniqueGnome = controller.createGnome(gnomeID, quantity, price);
             gnomeID = "";
             quantity = 0;
             
@@ -123,7 +121,7 @@ public class GnomeManager implements Serializable {
         try{
             startConversation();
             transactionFailure = null;
-            gnomeList = controllerr.findGnomes();
+            gnomeList = controller.findGnomes();
             
         }catch (Exception e) {
             handleException(e);
@@ -131,7 +129,8 @@ public class GnomeManager implements Serializable {
         
         return jsf22Bugfix();
     }
-
+    
+    //Getters and setters #########################################################################
     public List<GnomeDTO> getGnomeList() {
         return gnomeList;
     }

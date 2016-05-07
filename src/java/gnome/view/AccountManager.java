@@ -13,15 +13,13 @@ import javax.enterprise.context.ConversationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-@Named("currAcc")
+@Named("account")
 @ConversationScoped
 public class AccountManager implements Serializable {
 
     private static final long serialVersionUID = 1337800851L;
     @EJB
-    private AccountFacade controller;
-    @EJB
-    private Controller controllerr;
+    private Controller controller;
     private AccountDTO currUser;
     private String displayUser;
     private boolean uniqueId = true;
@@ -66,28 +64,11 @@ public class AccountManager implements Serializable {
         return "";
     }
 
-    public String findAccounts() {
-        try {
-            startConversation();
-            transactionFailure = null;
-            accountList = controller.findAccounts();
-
-        } catch (Exception e) {
-
-            handleException(e);
-        }
-
-        return jsf22Bugfix();
-
-    }
-
     public String login() {
         try {
             startConversation();
             transactionFailure = null;
-            loggedIn = controllerr.login(enterUser, enterPassword);
-            uniqueId = true;
-
+            loggedIn = controller.login(enterUser, enterPassword);
             if (loggedIn) {
                 displayLogin = true;
                 if ("admin".equals(SessionUtil.getUserName())) {
@@ -99,7 +80,6 @@ public class AccountManager implements Serializable {
             setEnterUser("");
             setEnterPassword("");
         } catch (Exception e) {
-
             handleException(e);
         }
 
@@ -107,24 +87,21 @@ public class AccountManager implements Serializable {
     }
 
     public String logout() {
-        controllerr.logout();
+        controller.logout();
         displayLogin = false;
         return "index?faces-redirect=true";
-
     }
 
     public String createAccount() {
         try {
             startConversation();
             transactionFailure = null;
-            uniqueId = controllerr.createAccount(newId, newPassword);
+            uniqueId = controller.createAccount(newId, newPassword);
             setNewId("");
             setNewPassword("");
-
         } catch (Exception e) {
             handleException(e);
         }
-
         return jsf22Bugfix();
     }
 
@@ -132,7 +109,7 @@ public class AccountManager implements Serializable {
         try {
             startConversation();
             transactionFailure = null;
-            controllerr.banAccount(id);
+            controller.banAccount(id);
         } catch (Exception e) {
             handleException(e);
         }
@@ -143,7 +120,7 @@ public class AccountManager implements Serializable {
         try {
             startConversation();
             transactionFailure = null;
-            controllerr.unbanAccount(id);
+            controller.unbanAccount(id);
 
         } catch (Exception e) {
             handleException(e);
@@ -151,6 +128,18 @@ public class AccountManager implements Serializable {
         return jsf22Bugfix();
     }
 
+    public String findAccounts() {
+        try {
+            startConversation();
+            transactionFailure = null;
+            accountList = controller.findAccounts();
+        } catch (Exception e) {
+            handleException(e);
+        }
+        return jsf22Bugfix();
+    }
+
+    //Getters and setters #########################################################################
     public AccountDTO getCurrUser() {
         return currUser;
     }
