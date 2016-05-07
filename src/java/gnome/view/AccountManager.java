@@ -2,7 +2,7 @@ package gnome.view;
 
 import gnome.controller.AccountFacade;
 import gnome.controller.Controller;
-import gnome.model.AccountDTO;
+import gnome.model.account.AccountDTO;
 import gnome.utils.SessionUtil;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -63,7 +63,7 @@ public class AccountManager implements Serializable {
     private String jsf22Bugfix() {
         return "";
     }
-
+    //Account Methods ##############################################################################
     public String login() {
         try {
             startConversation();

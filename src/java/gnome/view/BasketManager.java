@@ -5,9 +5,8 @@
  */
 package gnome.view;
 
-import gnome.controller.BasketFacade;
 import gnome.controller.Controller;
-import gnome.model.GnomeDTO;
+import gnome.model.gnome.GnomeDTO;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +32,7 @@ public class BasketManager implements Serializable {
     private Conversation conversation;
     private List<GnomeDTO> basketList = new ArrayList();
     private Exception transactionFailure;
+    private double totalPrice;
     private boolean success = true;
     
 
@@ -65,7 +65,8 @@ public class BasketManager implements Serializable {
     private String jsf22Bugfix() {
         return "";
     }
-
+    
+    //Basket Methods ##############################################################################
     public String addBasket(String id) {
         try {
             startConversation();
@@ -84,6 +85,7 @@ public class BasketManager implements Serializable {
             startConversation();
             transactionFailure = null;
             basketList = controller.findBasket();
+            totalPrice = controller.totalPrice(basketList);
 
         } catch (Exception e) {
 
@@ -139,7 +141,13 @@ public class BasketManager implements Serializable {
     public void setSuccess(boolean success) {
         this.success = success;
     }
-    
-    
 
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+    
 }

@@ -5,11 +5,11 @@
  */
 package gnome.dao;
 
-import gnome.model.Account;
-import gnome.model.AccountDTO;
-import gnome.model.Gnome;
-import gnome.model.GnomeDTO;
-import gnome.model.GnomeHandler;
+import gnome.model.account.Account;
+import gnome.model.account.AccountDTO;
+import gnome.model.gnome.Gnome;
+import gnome.model.gnome.GnomeDTO;
+import gnome.model.gnome.GnomeHandler;
 import gnome.utils.SessionUtil;
 import java.util.List;
 import javax.ejb.Stateless;

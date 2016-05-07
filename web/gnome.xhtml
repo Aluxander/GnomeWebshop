@@ -26,19 +26,15 @@ and open the template in the editor.
                             </h:column>
                         </h:dataTable>
                     </h:form>
-
                     <h:form>
                         <h3>Your basket:</h3>
-
                         <h:dataTable value="#{basket.basketList}" var="item">
-                            <h:column>#{item.id}, #{item.quantity} pieces </h:column>
+                            <h:column>#{item.id}, #{item.quantity} pieces </h:column>  
                         </h:dataTable>
+                        <h:outputText value="Total price: #{basket.totalPrice}€" />
                         <h:commandButton rendered="#{basket.basketList.size()>0}" value="Checkout" action="#{basket.checkout()}"/>
                     </h:form>
-
-                    <h:form rendered="${!basket.success}">
-                        <p>You cant buy more items than there is</p>
-                    </h:form>
+                    <h:outputText rendered="${!basket.success}" value="You cant buy more items than there is" />
                 </div>
             </body>
         </ui:define>

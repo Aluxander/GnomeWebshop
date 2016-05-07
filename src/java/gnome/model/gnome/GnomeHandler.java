@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gnome.model;
+package gnome.model.gnome;
 
 import gnome.dao.GnomeshopDAO;
 import java.util.List;

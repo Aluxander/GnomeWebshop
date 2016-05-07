@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gnome.model;
+package gnome.model.account;
 import gnome.dao.GnomeshopDAO;
 import gnome.utils.SessionUtil;
 import javax.ejb.EJB;

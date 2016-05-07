@@ -15,6 +15,7 @@
                         <h:dataTable value="#{basket.basketList}" var="item">
                             <h:column>#{item.id}, #{item.quantity} pieces </h:column>
                         </h:dataTable>
+                        <h:outputText value="Total price: #{basket.totalPrice}€" />
                         <h:commandButton rendered="#{basket.basketList.size()>0}" value="Buy" action="#{basket.buyBasket()}" />
                     </h:form>
 

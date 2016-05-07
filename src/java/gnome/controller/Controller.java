@@ -6,11 +6,11 @@
 package gnome.controller;
 
 import gnome.dao.GnomeshopDAO;
-import gnome.model.AccountDTO;
-import gnome.model.AccountHandler;
-import gnome.model.BasketHandler;
-import gnome.model.GnomeDTO;
-import gnome.model.GnomeHandler;
+import gnome.model.account.AccountDTO;
+import gnome.model.account.AccountHandler;
+import gnome.model.basket.BasketHandler;
+import gnome.model.gnome.GnomeDTO;
+import gnome.model.gnome.GnomeHandler;
 import gnome.utils.SessionUtil;
 import java.util.List;
 import javax.ejb.EJB;
@@ -85,5 +85,8 @@ public class Controller {
     
     public void buyBasket(List<GnomeDTO> basketList){
         bh.buyBasket(basketList);
+    }
+    public double totalPrice(List<GnomeDTO> basketList){
+        return bh.totalPrice(basketList);
     }
 }

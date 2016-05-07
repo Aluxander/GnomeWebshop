@@ -1,5 +1,7 @@
-package gnome.model;
+package gnome.model.basket;
 
+import gnome.model.gnome.GnomeDTO;
+import gnome.model.gnome.Gnome;
 import gnome.dao.GnomeshopDAO;
 import gnome.utils.SessionUtil;
 import java.util.List;
@@ -42,13 +44,12 @@ public class BasketHandler {
         }
     }
 
-    public static boolean checkBasket(String id, Integer quantity, double price, List<GnomeDTO> tempBasket) {
-
+    public static boolean checkBasket(String id, Integer quantity, double price, List<GnomeDTO> basketList) {
         boolean success = true;
         boolean check = true;
-        for (int i = 0; i < tempBasket.size(); i++) {
+        for (int i = 0; i < basketList.size(); i++) {
 
-            GnomeDTO addGnome = tempBasket.get(i);
+            GnomeDTO addGnome = basketList.get(i);
             if (addGnome.getId().equals(id)) {
                 int quant = addGnome.getQuantity();
                 if (quantity > quant) {
@@ -61,9 +62,21 @@ public class BasketHandler {
             }
         }
         if (check) {
-            tempBasket.add(new Gnome(id, 1, price));
+            basketList.add(new Gnome(id, 1, price));
         }
         return success;
-
+    }
+    public double totalPrice(List<GnomeDTO> basketList){
+        double totalPrice = 0;
+        
+        for (int i = 0; i < basketList.size(); i++) {
+            Integer quantity = basketList.get(i).getQuantity();
+            if(quantity > 1){
+                totalPrice += basketList.get(i).getPrice() * quantity;
+            } else {
+                totalPrice += basketList.get(i).getPrice();
+            }
+        }
+        return totalPrice;
     }
 }

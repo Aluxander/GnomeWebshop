@@ -1,9 +1,9 @@
 
 package gnome.controller;
 
-import gnome.model.Gnome;
-import gnome.model.GnomeDTO;
-import gnome.model.GnomeHandler;
+import gnome.model.gnome.Gnome;
+import gnome.model.gnome.GnomeDTO;
+import gnome.model.gnome.GnomeHandler;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;

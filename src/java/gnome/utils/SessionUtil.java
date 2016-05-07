@@ -1,9 +1,9 @@
 package gnome.utils;
  
 
-import gnome.model.BasketHandler;
+import gnome.model.basket.BasketHandler;
 
-import gnome.model.GnomeDTO;
+import gnome.model.gnome.GnomeDTO;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.context.FacesContext;
@@ -45,8 +45,6 @@ public class SessionUtil {
     }
     
     public static boolean addBasket(String id, Integer quantity, double price){
-        
-       
         List<GnomeDTO> tempBasket = new ArrayList<>();         
         HttpSession session = getSession();
         tempBasket = (List<GnomeDTO>) session.getAttribute("basket");

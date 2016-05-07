@@ -1,4 +1,4 @@
-package gnome.model;
+package gnome.model.gnome;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
