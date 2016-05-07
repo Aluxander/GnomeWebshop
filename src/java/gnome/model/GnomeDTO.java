@@ -12,8 +12,8 @@ package gnome.model;
 public interface GnomeDTO {
     
     public String getId();
-    
     public Integer getQuantity();
+    public double getPrice();
     public void setQuantity(Integer quantity);
     
 }

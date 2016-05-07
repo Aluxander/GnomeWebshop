@@ -17,7 +17,7 @@ and open the template in the editor.
                     <h3>Available Gnomes:</h3>
 
                     <h:dataTable value="#{gnome.gnomeList}" var="item">
-                        <h:column>#{item.id}, #{item.quantity} pieces <h:commandButton value="Add" action="#{gnome.add(item.id)}"/>
+                        <h:column>#{item.id}, #{item.quantity} pieces, #{item.price}€ <h:commandButton value="Add" action="#{gnome.addExistingGnome(item.id)}"/>
                             <h:commandButton value="Delete" action="#{gnome.remove(item.id)}"/>
                         </h:column>
                     </h:dataTable>
@@ -27,11 +27,15 @@ and open the template in the editor.
                     <h3>New Gnome</h3>
                     <p>
                         <h:outputLabel for="color" value="Color: "/>
-                        <h:inputText id="color" value="#{gnome.color}"/>
+                        <h:inputText id="color" value="#{gnome.gnomeID}"/>
                     </p>
                     <p>
                         <h:outputLabel for="quantity" value="Quantity: "/>
                         <h:inputText id="quantity" value="#{gnome.quantity}"/>
+                    </p>
+                    <p>
+                        <h:outputLabel for="price" value="Price: "/>
+                        <h:inputText id="price" value="#{gnome.price}"/>
                     </p>
                     <p>
                         <h:commandButton value="Add" action="#{gnome.createGnome()}"/>

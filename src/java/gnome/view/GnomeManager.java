@@ -5,6 +5,7 @@
  */
 package gnome.view;
 
+import gnome.controller.Controller;
 import gnome.controller.GnomeFacade;
 import gnome.model.GnomeDTO;
 import java.io.Serializable;
@@ -27,11 +28,14 @@ public class GnomeManager implements Serializable {
     private static final long serialVersionUID = 1337880851L;
     @EJB
     private GnomeFacade controller;
+    @EJB
+    private Controller controllerr;
     @Inject
     private Conversation conversation;
     private Exception transactionFailure;
-    private String color;
+    private String gnomeID;
     private Integer quantity;
+    private double price;
     private boolean uniqueGnome = true;
     private boolean quant = true;
     private List<GnomeDTO> gnomeList = new ArrayList();
@@ -69,11 +73,11 @@ public class GnomeManager implements Serializable {
     }
     
     
-    public String add(String color){
+    public String addExistingGnome(String gnomeID){
         try{
             startConversation();
             transactionFailure = null;
-            controller.addGnome(color, 1);
+            controllerr.addExistingGnome(gnomeID, 1);
             
         }catch (Exception e) {
             handleException(e);
@@ -82,11 +86,11 @@ public class GnomeManager implements Serializable {
         
     }
     
-    public String remove(String color){
+    public String remove(String gnomeID){
         try{
             startConversation();
             transactionFailure = null;
-            controller.removeGnome(color, 1);
+            controllerr.removeGnome(gnomeID, 1);
             
         }catch (Exception e) {
             handleException(e);
@@ -102,8 +106,8 @@ public class GnomeManager implements Serializable {
         try{
             startConversation();
             transactionFailure = null;
-            uniqueGnome = controller.createGnome(color, quantity);
-            color = "";
+            uniqueGnome = controllerr.createGnome(gnomeID, quantity, price);
+            gnomeID = "";
             quantity = 0;
             
         } catch (Exception e) {
@@ -119,7 +123,7 @@ public class GnomeManager implements Serializable {
         try{
             startConversation();
             transactionFailure = null;
-            gnomeList = controller.findGnomes();
+            gnomeList = controllerr.findGnomes();
             
         }catch (Exception e) {
             handleException(e);
@@ -136,13 +140,15 @@ public class GnomeManager implements Serializable {
         this.gnomeList = gnomeList;
     }
 
-    public String getColor() {
-        return color;
+    public String getGnomeID() {
+        return gnomeID;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setGnomeID(String gnomeID) {
+        this.gnomeID = gnomeID;
     }
+
+   
 
     public Integer getQuantity() {
         return quantity;
@@ -152,6 +158,15 @@ public class GnomeManager implements Serializable {
         this.quantity = quantity;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+    
+
     public boolean isUniqueGnome() {
         return uniqueGnome;
     }
@@ -159,11 +174,5 @@ public class GnomeManager implements Serializable {
     public void setUniqueGnome(boolean uniqueGnome) {
         this.uniqueGnome = uniqueGnome;
     }
-
- 
-
-    
-    
-    
 }
     

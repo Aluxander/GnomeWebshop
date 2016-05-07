@@ -1,6 +1,7 @@
 package gnome.view;
 
 import gnome.controller.AccountFacade;
+import gnome.controller.Controller;
 import gnome.model.AccountDTO;
 import gnome.utils.SessionUtil;
 import java.io.Serializable;
@@ -19,6 +20,8 @@ public class AccountManager implements Serializable {
     private static final long serialVersionUID = 1337800851L;
     @EJB
     private AccountFacade controller;
+    @EJB
+    private Controller controllerr;
     private AccountDTO currUser;
     private String displayUser;
     private boolean uniqueId = true;
@@ -82,22 +85,19 @@ public class AccountManager implements Serializable {
         try {
             startConversation();
             transactionFailure = null;
-
-            loggedIn = controller.login(enterUser, enterPassword);
+            loggedIn = controllerr.login(enterUser, enterPassword);
             uniqueId = true;
 
             if (loggedIn) {
                 displayLogin = true;
-                if("admin".equals(SessionUtil.getUserName())){
+                if ("admin".equals(SessionUtil.getUserName())) {
                     return "admin?faces-redirect=true";
-                }else{
-                   return "gnome?faces-redirect=true"; 
+                } else {
+                    return "gnome?faces-redirect=true";
                 }
             }
-
             setEnterUser("");
             setEnterPassword("");
-
         } catch (Exception e) {
 
             handleException(e);
@@ -107,16 +107,17 @@ public class AccountManager implements Serializable {
     }
 
     public String logout() {
-        controller.logout();
+        controllerr.logout();
         displayLogin = false;
         return "index?faces-redirect=true";
 
     }
- public String createAccount() {
+
+    public String createAccount() {
         try {
             startConversation();
             transactionFailure = null;
-            uniqueId = controller.createAccount(newId, newPassword);
+            uniqueId = controllerr.createAccount(newId, newPassword);
             setNewId("");
             setNewPassword("");
 
@@ -131,7 +132,7 @@ public class AccountManager implements Serializable {
         try {
             startConversation();
             transactionFailure = null;
-            controller.banAccount(id);
+            controllerr.banAccount(id);
         } catch (Exception e) {
             handleException(e);
         }
@@ -142,8 +143,8 @@ public class AccountManager implements Serializable {
         try {
             startConversation();
             transactionFailure = null;
-            controller.unbanAccount(id);
-            
+            controllerr.unbanAccount(id);
+
         } catch (Exception e) {
             handleException(e);
         }

@@ -19,7 +19,7 @@ and open the template in the editor.
                             <h:column>
                                 <div class="gnomeCard">
                                     <img class="gnomeImage" src="./resources/images/pimp-gnome.jpg"></img>
-                                    <p>#{item.id}, #{item.quantity} pieces</p>
+                                    <p>#{item.id}, #{item.quantity} pieces #{item.price}€</p>
                                     <h:commandButton rendered="#{item.quantity != 0}" value="Add"
                                                      action="#{basket.addBasket(item.id)}"/>
                                 </div>

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gnome.model;
 
 import java.io.Serializable;
@@ -22,17 +17,20 @@ public class Gnome implements GnomeDTO, Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
     private Integer quantity;
+    private double price;
     
     public Gnome(){}
     
-    public Gnome(String name, Integer id){
+    public Gnome(String name, Integer id, double price){
         this.id = name;
         this.quantity = id;
+        this.price = price;
     }
     
     /**
-     *
-     * @return
+     * Getter and setters!
+     * 
+     * @return 
      */
     @Override
     public String getId() {
@@ -52,6 +50,15 @@ public class Gnome implements GnomeDTO, Serializable {
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+    
     
 
     @Override
@@ -68,10 +75,7 @@ public class Gnome implements GnomeDTO, Serializable {
             return false;
         }
         Gnome other = (Gnome) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+        return !((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)));
     }
 
     @Override

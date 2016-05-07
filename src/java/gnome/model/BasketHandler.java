@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class BasketHandler {
     
-    public static boolean addBasket(String id, Integer quantity, List<GnomeDTO> tempBasket){
+    public static boolean addBasket(String id, Integer quantity, double price, List<GnomeDTO> tempBasket){
     
     boolean success = true;
     boolean check = true;
@@ -33,7 +33,7 @@ public class BasketHandler {
             }          
         }
         if(check){
-            tempBasket.add(new Gnome(id, 1));
+            tempBasket.add(new Gnome(id, 1, price));
         }
         return success;
         

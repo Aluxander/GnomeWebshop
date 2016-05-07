@@ -28,7 +28,8 @@ public class BasketFacade {
     public boolean addBasket(String id){
         GnomeDTO currGnome = entityManager.find(Gnome.class, id);
         Integer quant = currGnome.getQuantity();
-        return SessionUtil.addBasket(id, quant);
+        double price = currGnome.getPrice();
+        return SessionUtil.addBasket(id, quant, price);
     }
     
     public List<GnomeDTO> findBasket(){
@@ -42,12 +43,10 @@ public class BasketFacade {
         for(int i=0; i < basketList.size(); i++){
             id = basketList.get(i).getId();
             quant = basketList.get(i).getQuantity();
-            
             Gnome currGnome = entityManager.find(Gnome.class, id);
             currGnome.setQuantity(currGnome.getQuantity() - quant);
             entityManager.merge(currGnome);
             entityManager.flush();    
-            
         }
     }
     

@@ -44,14 +44,14 @@ public class SessionUtil {
         session.invalidate();
     }
     
-    public static boolean addBasket(String id, Integer quantity){
+    public static boolean addBasket(String id, Integer quantity, double price){
         
        
         List<GnomeDTO> tempBasket = new ArrayList<>();         
         HttpSession session = getSession();
         tempBasket = (List<GnomeDTO>) session.getAttribute("basket");
         
-        if(BasketHandler.addBasket(id, quantity, tempBasket)){
+        if(BasketHandler.addBasket(id, quantity, price, tempBasket)){
             session.setAttribute("basket", tempBasket);
             return true;
         }else{

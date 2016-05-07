@@ -10,12 +10,8 @@ package gnome.model;
  * @author Alex
  */
 public interface AccountDTO {
-    
     String getId();
-
     String getPassword();
-    
     Integer getBanned();
-    
     void setBanned(Integer banned);
 }   

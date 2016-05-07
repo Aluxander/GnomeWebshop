@@ -22,7 +22,7 @@ public class GnomeFacade {
     @PersistenceContext(unitName = "CurrencyPU")
     private EntityManager entityManager;
    
-    public void addGnome(String id, Integer quantity){
+    public void addExistingGnome(String id, Integer quantity){
         Integer newQuant;
         Gnome currGnome = entityManager.find(Gnome.class, id);
         newQuant = currGnome.getQuantity();
@@ -53,8 +53,8 @@ public class GnomeFacade {
    
     
     
-    public boolean createGnome(String color, Integer quantity){
-        GnomeDTO gnome = new Gnome(color, quantity);
+    public boolean createGnome(String color, Integer quantity, double price){
+        GnomeDTO gnome = new Gnome(color, quantity, price);
         GnomeDTO check = entityManager.find(Gnome.class, color);
         if(check == null){
             entityManager.persist(gnome);
@@ -62,7 +62,5 @@ public class GnomeFacade {
         }else{
             return false;
         }
-
-
     }
 }
