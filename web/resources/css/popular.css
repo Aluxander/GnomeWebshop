@@ -21,3 +21,27 @@ p{
     height: 200px;
     width: 200px;
 }
+
+@media screen and (max-width: 768px){
+    .popular{
+        display:flex; 
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        background-color:white;
+        width: 95%;
+    }
+    .popular *{
+        display:flex;
+        flex-direction: row;
+        width: 200px;
+        margin-bottom: 20px;
+    }
+    .popImage{
+        height: 100px;
+        width: 100px;
+        border-bottom: medium none;
+    }
+
+
+}

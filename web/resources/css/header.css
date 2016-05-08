@@ -30,11 +30,18 @@
     color: white;
 }
 @media screen and (max-width: 768px){
+    .header{
+        height: 40px;
+    }
     .logo{
         display: none;
     }
     .wrapper{
-        flex-direction: column;
+      width: 100%;
+      justify-content: center;
+ 
     }
-
+    .navWrapper{
+        margin-left: 0px;
+    }
 }

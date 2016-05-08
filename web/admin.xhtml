@@ -7,52 +7,53 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
     <ui:composition template="./templates/main.xhtml">
         <ui:define name="content">   
-            <h:outputStylesheet name="css/gnome.css" />
+            <h:outputStylesheet name="css/admin.css" />
             <body action="#{gnome.findGnomes()},#{account.findAccounts()},#{basket.findBasket()}">
                 <div class="content">
-                <h:form>
-                    <h3>Available Gnomes:</h3>
+                    <div class="adminWrapper">
+                        <div class="available">
+                            <h:form>
+                                <h3>Available Gnomes:</h3>
+                                <h:dataTable value="#{gnome.gnomeList}" var="item">
+                                    <h:column>#{item.id}, #{item.quantity} pieces, #{item.price}€ <h:commandButton value="Add" action="#{gnome.addExistingGnome(item.id)}"/>
+                                        <h:commandButton value="Delete" action="#{gnome.remove(item.id)}"/>
+                                    </h:column>
+                                </h:dataTable>
+                            </h:form>
+                        </div>
+                        <div class="newGnome">
+                            <h:form>
+                                <h3>New Gnome</h3>
+                                <h:outputLabel for="color" value="Color: "/>
+                                <h:inputText id="color" value="#{gnome.gnomeID}"/>
 
-                    <h:dataTable value="#{gnome.gnomeList}" var="item">
-                        <h:column>#{item.id}, #{item.quantity} pieces, #{item.price}€ <h:commandButton value="Add" action="#{gnome.addExistingGnome(item.id)}"/>
-                            <h:commandButton value="Delete" action="#{gnome.remove(item.id)}"/>
-                        </h:column>
-                    </h:dataTable>
-                </h:form>
+                                <h:outputLabel for="quantity" value="Quantity: "/>
+                                <h:inputText id="quantity" value="#{gnome.quantity}"/>
 
-                <h:form>
-                    <h3>New Gnome</h3>
-                    <p>
-                        <h:outputLabel for="color" value="Color: "/>
-                        <h:inputText id="color" value="#{gnome.gnomeID}"/>
-                    </p>
-                    <p>
-                        <h:outputLabel for="quantity" value="Quantity: "/>
-                        <h:inputText id="quantity" value="#{gnome.quantity}"/>
-                    </p>
-                    <p>
-                        <h:outputLabel for="price" value="Price: "/>
-                        <h:inputText id="price" value="#{gnome.price}"/>
-                    </p>
-                    <p>
-                        <h:commandButton value="Add" action="#{gnome.createGnome()}"/>
-                    </p>
-                </h:form>
-                <h:outputLabel rendered="#{!gnome.uniqueGnome}" value="Gnome already exists"/>
+                                <h:outputLabel for="price" value="Price: "/>
+                                <h:inputText id="price" value="#{gnome.price}"/>
+                                <h:commandButton value="Add" action="#{gnome.createGnome()}"/>
+                            </h:form>
+                            <h:outputLabel rendered="#{!gnome.uniqueGnome}" value="Gnome already exists"/>
+                            
+                        </div>
+                        <div class="accounts">
+                            <h:form>
+                            <h3>Accounts:</h3>
 
-                <h:form>
-                    <h3>Accounts:</h3>
-
-                    <h:dataTable value="#{account.accountList}" var="accounts">
-                        <h:column>#{accounts.id} 
-                            <h:commandButton rendered="#{accounts.banned == 0}" value="Ban" action="#{account.banAccount(accounts.id)}"/>
-                            <h:commandButton rendered="#{accounts.banned == 1}" value="Unban" action="#{account.unbanAccount(accounts.id)}"/>
-                        </h:column>
-                    </h:dataTable>
-                </h:form>
+                            <h:dataTable value="#{account.accountList}" var="accounts">
+                                <h:column>#{accounts.id} 
+                                    <h:commandButton rendered="#{accounts.banned == 0}" value="Ban" action="#{account.banAccount(accounts.id)}"/>
+                                    <h:commandButton rendered="#{accounts.banned == 1}" value="Unban" action="#{account.unbanAccount(accounts.id)}"/>
+                                </h:column>
+                            </h:dataTable>
+                            </h:form>
+                        </div>
+                    </div>
                 </div>
             </body>
         </ui:define>

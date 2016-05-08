@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <ui:composition> 
+        <div class="basket">
+            <h:form>
+                <div class="basketInfo">
+                <h3>Your basket:</h3>
+                <h:dataTable value="#{basket.basketList}" var="item">
+                    <h:column>#{item.id}, #{item.quantity} pieces </h:column>  
+                </h:dataTable>
+                </div>
+               
+                <div class="checkout">
+                    <h:outputText value="Total price: #{basket.totalPrice}€" />
+                    <h:commandButton rendered="#{basket.basketList.size()>0}" value="Checkout" action="#{basket.checkout()}"/>
+                </div>
+            </h:form>
+        </div>
+    </ui:composition>
+</html>

@@ -11,11 +11,20 @@
     margin-bottom: 5px;
     font-size: 12px;
     font-weight: bold;
-
 }
 .welcome *{
     margin-right: 10px;
     margin-left: 5px;
+}
+.userText{
+    font-weight: bold;
     color: green;
+}
+
+@media screen and (max-width: 768px){
+    .panel{
+        width:300px;
+    }
+
 }
 

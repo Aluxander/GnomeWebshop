@@ -34,6 +34,9 @@ h1{
 .welcomeText{
     width: 400px;
 }
+.welcomeText h1{
+    color: #FE9A2E;
+}
 .loginWrapper{
     display:flex;
     flex-direction: column;
@@ -83,7 +86,16 @@ h1{
 }
 
 @media screen and (max-width: 768px){
+    .cover{
+        display:flex;
+        align-items: flex-start;
+        position: relative;
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+    }
     .info{
+        margin-top: 10px;
         width: 95%;
     }
     .inputWrapper{

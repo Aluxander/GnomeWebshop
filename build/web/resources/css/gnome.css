@@ -53,12 +53,24 @@
 .basket{
     display:flex;
     flex-direction: column;
+    justify-content: space-between;
     margin-left: 10px;
     background-color: white;
     width: 30%;
+    height: 300px;;
 }
 
 .basket *{
     margin-left: 5px;
     margin-top: 5px;
+}
+
+.checkout{
+    display:flex;
+    align-items: baseline;
+    align-self: flex-end;
+    margin-top: 20px;
+}
+.checkout *{
+    margin-left: 5px;
 }
