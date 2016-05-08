@@ -1,7 +1,7 @@
 
-package gnome.model.account;
+package gnome.integration.entities;
 
-import gnome.model.account.AccountDTO;
+import gnome.dto.AccountDTO;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

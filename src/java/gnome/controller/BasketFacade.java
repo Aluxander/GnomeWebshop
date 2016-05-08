@@ -5,8 +5,8 @@
  */
 package gnome.controller;
 
-import gnome.model.gnome.Gnome;
-import gnome.model.gnome.GnomeDTO;
+import gnome.integration.entities.Gnome;
+import gnome.dto.GnomeDTO;
 import gnome.utils.SessionUtil;
 import java.util.List;
 import javax.ejb.Stateless;

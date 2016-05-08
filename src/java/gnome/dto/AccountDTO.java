@@ -3,17 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gnome.model.gnome;
+package gnome.dto;
 
 /**
  *
  * @author Alex
  */
-public interface GnomeDTO {
-    
-    public String getId();
-    public Integer getQuantity();
-    public double getPrice();
-    public void setQuantity(Integer quantity);
-    
-}
+public interface AccountDTO {
+    String getId();
+    String getPassword();
+    Integer getBanned();
+    void setBanned(Integer banned);
+}   

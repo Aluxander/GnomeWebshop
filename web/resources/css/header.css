@@ -29,16 +29,9 @@
     text-decoration: none;
     color: white;
 }
-
-.loggedIn{
-    display:flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    color: #FE9A2E;
-}
 @media screen and (max-width: 768px){
     .logo{
-        display:none;
+        display: none;
     }
     .wrapper{
         flex-direction: column;

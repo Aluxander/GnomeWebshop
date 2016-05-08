@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gnome.model.gnome;
+package gnome.model;
 
-import gnome.dao.GnomeshopDAO;
+import gnome.dto.GnomeDTO;
+import gnome.integration.entities.Gnome;
+import gnome.integration.dao.GnomeshopDAO;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -16,7 +18,7 @@ import javax.ejb.Stateless;
  */
 
 @Stateless
-public class GnomeHandler {
+public class GnomeEJB {
     
     @EJB
     GnomeshopDAO dao;
@@ -43,7 +45,7 @@ public class GnomeHandler {
     
     public void removeGnome(String gnomeID, Integer quantity){
         GnomeDTO currGnome = dao.findGnome(gnomeID);
-        if(GnomeHandler.vaildQuantity(currGnome, quantity)){
+        if(GnomeEJB.vaildQuantity(currGnome, quantity)){
             dao.updateGnome(currGnome);
             dao.refreshAllTables();
         }   

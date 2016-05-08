@@ -5,12 +5,12 @@
  */
 package gnome.controller;
 
-import gnome.dao.GnomeshopDAO;
-import gnome.model.account.AccountDTO;
-import gnome.model.account.AccountHandler;
-import gnome.model.basket.BasketHandler;
-import gnome.model.gnome.GnomeDTO;
-import gnome.model.gnome.GnomeHandler;
+import gnome.integration.dao.GnomeshopDAO;
+import gnome.dto.AccountDTO;
+import gnome.model.AccountEJB;
+import gnome.model.BasketEJB;
+import gnome.dto.GnomeDTO;
+import gnome.model.GnomeEJB;
 import gnome.utils.SessionUtil;
 import java.util.List;
 import javax.ejb.EJB;
@@ -27,11 +27,11 @@ public class Controller {
     @EJB
     GnomeshopDAO dao;
     @EJB
-    AccountHandler ah;
+    AccountEJB ah;
     @EJB
-    GnomeHandler gh;
+    GnomeEJB gh;
     @EJB
-    BasketHandler bh;
+    BasketEJB bh;
  
     //Calls regarding Accounts #####################################################################
     public boolean login(String id, String password){

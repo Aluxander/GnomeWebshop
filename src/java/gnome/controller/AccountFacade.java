@@ -5,8 +5,8 @@
  */
 package gnome.controller;
 
-import gnome.model.account.Account;
-import gnome.model.account.AccountDTO;
+import gnome.integration.entities.Account;
+import gnome.dto.AccountDTO;
 import gnome.utils.SessionUtil;
 import java.util.List;
 import javax.ejb.Stateless;

@@ -2,7 +2,7 @@ package gnome.view;
 
 import gnome.controller.AccountFacade;
 import gnome.controller.Controller;
-import gnome.model.account.AccountDTO;
+import gnome.dto.AccountDTO;
 import gnome.utils.SessionUtil;
 import java.io.Serializable;
 import java.util.ArrayList;

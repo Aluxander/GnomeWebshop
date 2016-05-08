@@ -7,7 +7,7 @@ package gnome.view;
 
 import gnome.controller.Controller;
 import gnome.controller.GnomeFacade;
-import gnome.model.gnome.GnomeDTO;
+import gnome.dto.GnomeDTO;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

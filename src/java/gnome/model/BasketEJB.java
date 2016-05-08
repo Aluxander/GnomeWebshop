@@ -1,8 +1,8 @@
-package gnome.model.basket;
+package gnome.model;
 
-import gnome.model.gnome.GnomeDTO;
-import gnome.model.gnome.Gnome;
-import gnome.dao.GnomeshopDAO;
+import gnome.dto.GnomeDTO;
+import gnome.integration.entities.Gnome;
+import gnome.integration.dao.GnomeshopDAO;
 import gnome.utils.SessionUtil;
 import java.util.List;
 import javax.ejb.EJB;
@@ -13,7 +13,7 @@ import javax.ejb.Stateless;
  * @author Alex
  */
 @Stateless
-public class BasketHandler {
+public class BasketEJB {
 
     @EJB
     GnomeshopDAO dao;

@@ -1,5 +1,6 @@
-package gnome.model.gnome;
+package gnome.integration.entities;
 
+import gnome.dto.GnomeDTO;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

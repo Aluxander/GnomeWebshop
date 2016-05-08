@@ -1,0 +1,21 @@
+
+.panel{
+    display:flex; 
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    margin: 0 auto;
+    background-color: white;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 12px;
+    font-weight: bold;
+
+}
+.welcome *{
+    margin-right: 10px;
+    margin-left: 5px;
+    color: green;
+}
+

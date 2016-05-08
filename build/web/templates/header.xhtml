@@ -14,12 +14,6 @@
                     <h:link value="ABOUT" outcome="login"></h:link>
                     <h:link value="CONTACT" outcome="login"></h:link>
                 </div>
-                <div class="loggedIn">
-                    <h:form rendered="${username != null}">
-                    <h:outputLabel value="Welcome ${username}! " />
-                    <h:commandButton value="Log out" action="#{currAcc.logout()}" />
-                     </h:form>
-                </div>
             </div>    
         </div> 
     </ui:composition>

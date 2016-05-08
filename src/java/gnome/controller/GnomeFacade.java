@@ -1,9 +1,9 @@
 
 package gnome.controller;
 
-import gnome.model.gnome.Gnome;
-import gnome.model.gnome.GnomeDTO;
-import gnome.model.gnome.GnomeHandler;
+import gnome.integration.entities.Gnome;
+import gnome.dto.GnomeDTO;
+import gnome.model.GnomeEJB;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
@@ -37,7 +37,7 @@ public class GnomeFacade {
     public void removeGnome(String id, Integer quantity){
         Gnome currGnome = entityManager.find(Gnome.class, id);
         
-        if(GnomeHandler.vaildQuantity(currGnome, quantity)){
+        if(GnomeEJB.vaildQuantity(currGnome, quantity)){
             entityManager.merge(currGnome);
             entityManager.flush();
         }   

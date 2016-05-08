@@ -13,28 +13,33 @@ and open the template in the editor.
             <h:outputStylesheet name="css/gnome.css" />
             <body action="#{gnome.findGnomes()},#{account.findAccounts()},#{basket.findBasket()}">
                 <div class="content">
-                    <h:form>
-                        <h3>Add gnomes to your basket:</h3>
-                        <h:dataTable styleClass="order-table" value="#{gnome.gnomeList}" var="item">
-                            <h:column>
-                                <div class="gnomeCard">
-                                    <img class="gnomeImage" src="./resources/images/pimp-gnome.jpg"></img>
-                                    <p>#{item.id}, #{item.quantity} pieces #{item.price}€</p>
-                                    <h:commandButton rendered="#{item.quantity != 0}" value="Add"
-                                                     action="#{basket.addBasket(item.id)}"/>
-                                </div>
-                            </h:column>
-                        </h:dataTable>
-                    </h:form>
-                    <h:form>
-                        <h3>Your basket:</h3>
-                        <h:dataTable value="#{basket.basketList}" var="item">
-                            <h:column>#{item.id}, #{item.quantity} pieces </h:column>  
-                        </h:dataTable>
-                        <h:outputText value="Total price: #{basket.totalPrice}€" />
-                        <h:commandButton rendered="#{basket.basketList.size()>0}" value="Checkout" action="#{basket.checkout()}"/>
-                    </h:form>
-                    <h:outputText rendered="${!basket.success}" value="You cant buy more items than there is" />
+                    <div class="gnomeTable">
+                        <h:outputText class="basketError" rendered="${!basket.success}" value="You cant buy more items than there is" />
+                        <h:form>
+                            <h3>Available gnomes</h3>
+                            <h:dataTable styleClass="order-table" value="#{gnome.gnomeList}" var="item">
+                                <h:column>
+                                    <div class="gnomeCard">
+                                        <img class="gnomeImage" src="./resources/images/pimp-gnome.jpg"></img>
+                                        <p>#{item.id},  #{item.price}€</p>
+                                        <h:outputText value="#{item.quantity} left in store" styleClass="#{item.quantity > 0 ? 'avail' : 'unavail'}"/>
+                                        <h:commandButton rendered="#{item.quantity != 0}" value="Add"
+                                                         action="#{basket.addBasket(item.id)}"/>
+                                    </div>
+                                </h:column>
+                            </h:dataTable>
+                        </h:form>
+                    </div>
+                    <div class="basket">
+                        <h:form>
+                            <h3>Your basket:</h3>
+                            <h:dataTable value="#{basket.basketList}" var="item">
+                                <h:column>#{item.id}, #{item.quantity} pieces </h:column>  
+                            </h:dataTable>
+                            <h:outputText value="Total price: #{basket.totalPrice}€" />
+                            <h:commandButton rendered="#{basket.basketList.size()>0}" value="Checkout" action="#{basket.checkout()}"/>
+                        </h:form>
+                    </div>
                 </div>
             </body>
         </ui:define>

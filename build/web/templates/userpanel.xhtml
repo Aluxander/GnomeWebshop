@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <ui:composition> 
+        <h:outputStylesheet name="css/userpanel.css" />
+        
+            <h:form rendered="${username != null}">
+                <div class="panel">
+                    <div class="welcome">
+                        <h:outputLabel value="Welcome ${username}! " />
+                        <h:commandButton rendered="#{basket.basketList.size()>0}" value="View basket" action="#{basket.checkout()}"/>
+                    </div>
+                    <h:commandButton value="Log out" action="#{currAcc.logout()}" />
+                </div>
+            </h:form>
+    </ui:composition>
+</html>

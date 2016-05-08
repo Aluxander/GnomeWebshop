@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gnome.dao;
+package gnome.integration.dao;
 
-import gnome.model.account.Account;
-import gnome.model.account.AccountDTO;
-import gnome.model.gnome.Gnome;
-import gnome.model.gnome.GnomeDTO;
-import gnome.model.gnome.GnomeHandler;
-import gnome.utils.SessionUtil;
+import gnome.integration.entities.Account;
+import gnome.dto.AccountDTO;
+import gnome.integration.entities.Gnome;
+import gnome.dto.GnomeDTO;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;

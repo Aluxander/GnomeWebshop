@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gnome.model.account;
-import gnome.dao.GnomeshopDAO;
+package gnome.model;
+import gnome.dto.AccountDTO;
+import gnome.integration.entities.Account;
+import gnome.integration.dao.GnomeshopDAO;
 import gnome.utils.SessionUtil;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -14,7 +16,7 @@ import javax.ejb.Stateless;
  * @author Alex
  */
 @Stateless
-public class AccountHandler {
+public class AccountEJB {
     @EJB
     GnomeshopDAO dao;
     
